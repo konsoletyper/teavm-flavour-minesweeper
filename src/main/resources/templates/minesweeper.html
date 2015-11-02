@@ -1,0 +1,40 @@
+<?import org.teavm.flavour.minesweeper.Util?>
+<?import org.teavm.flavour.minesweeper.CellState?>
+<?import org.teavm.flavour.minesweeper.GameState?>
+<div>
+  <button event:click="restart()">Restart</button>
+  <std:if condition="state == GameState.WON">
+    You won! Congratulations!
+  </std:if>
+  <std:if condition="state == GameState.LOST">
+    You've lost
+  </std:if>
+</div>
+<table attr:class="'game-field' + (state == GameState.WON ? ' game-won' : state == GameState.LOST ? ' game-lost' : '')">
+  <tbody>
+    <std:foreach var="i" in="Util.range(0, rows)">
+      <tr class="game-row">
+        <std:foreach var="j" in="Util.range(0, columns)">
+          <std:with var="cell" value="cellAt(i, j)">
+            <td class="game-cell-container" event:click="open((int) i, (int) j)">
+              <std:if condition="cellAt(i, j).state == CellState.OPEN">
+                <div class="game-cell-open">
+                  <std:text value="cell.minesAround > 0 ? String.valueOf(cell.minesAround) : ''"/>
+                </div>
+              </std:if>
+              <std:if condition="cell.state == CellState.UNKNOWN">
+                <div class="game-cell-unknown"></div>
+              </std:if>
+              <std:if condition="cell.state == CellState.MINE">
+                <div attr:class="'game-cell-mine'">@</div>
+              </std:if>
+              <std:if condition="cell.state == CellState.FLAG">
+                <div class="game-cell-flag">?</div>
+              </std:if>
+            </td>
+          </std:with>
+        </std:foreach>
+      </tr>
+    </std:foreach>
+  </tbody>
+</table>

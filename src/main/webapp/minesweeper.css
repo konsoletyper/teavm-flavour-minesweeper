@@ -1,0 +1,31 @@
+.game-field {
+    border-collapse: collapse;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+.game-cell-container {
+    border-color: rgb(160,160,160);
+    border-width: 1px;
+    border-style: solid;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0;
+}
+.game-cell-container > div {
+    width: 30px;
+    height: 30px;
+}
+.game-cell-unknown {
+    cursor: pointer;
+}
+.game-cell-unknown, .game-cell-mine, .game-cell-flag {
+    background-color: rgb(230,230,230);
+}
+.game-lost .game-cell-mine {
+    color: red;
+}
+.game-won .game-cell-mine {
+    color: green;
+}
