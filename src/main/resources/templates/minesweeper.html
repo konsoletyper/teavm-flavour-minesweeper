@@ -16,7 +16,7 @@
       <tr class="game-row">
         <std:foreach var="j" in="Util.range(0, columns)">
           <std:with var="cell" value="cellAt(i, j)">
-            <td class="game-cell-container" event:click="open((int) i, (int) j)">
+            <td class="game-cell-container" event:click="open(i, j)">
               <std:if condition="cellAt(i, j).state == CellState.OPEN">
                 <div class="game-cell-open">
                   <std:text value="cell.minesAround > 0 ? String.valueOf(cell.minesAround) : ''"/>
