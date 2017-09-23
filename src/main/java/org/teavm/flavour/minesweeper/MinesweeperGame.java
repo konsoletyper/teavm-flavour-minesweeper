@@ -23,10 +23,6 @@ import java.util.Random;
 import org.teavm.flavour.templates.BindTemplate;
 import org.teavm.flavour.templates.Templates;
 
-/**
- *
- * @author Alexey Andreev
- */
 @BindTemplate("templates/minesweeper.html")
 public class MinesweeperGame {
     private Cell[][] cells;
@@ -66,7 +62,6 @@ public class MinesweeperGame {
             int column = random.nextInt(columns);
             if (cells[row][column].mine) {
                 --i;
-                continue;
             } else {
                 cells[row][column].mine = true;
             }

@@ -15,10 +15,6 @@
  */
 package org.teavm.flavour.minesweeper;
 
-/**
- *
- * @author Alexey Andreev
- */
 public enum CellState {
     UNKNOWN,
     OPEN,

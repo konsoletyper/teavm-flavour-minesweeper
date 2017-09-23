@@ -19,7 +19,7 @@
             <td class="game-cell-container" event:click="open(i, j)">
               <std:if condition="cell.state == CellState.OPEN">
                 <div class="game-cell-open">
-                  <std:text value="cell.minesAround > 0 ? String.valueOf(cell.minesAround) : ''"/>
+                  <html:text value="cell.minesAround > 0 ? String.valueOf(cell.minesAround) : ''"/>
                 </div>
               </std:if>
               <std:if condition="cell.state == CellState.UNKNOWN">

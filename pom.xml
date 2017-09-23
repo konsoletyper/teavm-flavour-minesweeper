@@ -7,8 +7,8 @@
   <packaging>war</packaging>
 
   <properties>
-    <teavm.version>0.4.1-SNAPSHOT</teavm.version>
-    <teavm-flavour.version>0.1.0-SNAPSHOT</teavm-flavour.version>
+    <teavm.version>0.5.1</teavm.version>
+    <teavm-flavour.version>0.1.0</teavm-flavour.version>
   </properties>
 
   <dependencies>
@@ -19,14 +19,10 @@
     </dependency>
     <dependency>
       <groupId>org.teavm</groupId>
-      <artifactId>teavm-jso-apis</artifactId>
+      <artifactId>teavm-metaprogramming-impl</artifactId>
       <version>${teavm.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.teavm.flavour</groupId>
-      <artifactId>teavm-flavour-templates</artifactId>
-      <version>${teavm-flavour.version}</version>
-    </dependency>
+
     <dependency>
       <groupId>org.teavm.flavour</groupId>
       <artifactId>teavm-flavour-widgets</artifactId>
@@ -80,6 +76,7 @@
               <debugInformationGenerated>true</debugInformationGenerated>
               <sourceMapsGenerated>true</sourceMapsGenerated>
               <sourceFilesCopied>true</sourceFilesCopied>
+              <optimizationLevel>FULL</optimizationLevel>
             </configuration>
           </execution>
         </executions>

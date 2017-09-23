@@ -17,10 +17,6 @@ package org.teavm.flavour.minesweeper;
 
 import java.util.Iterator;
 
-/**
- *
- * @author Alexey Andreev
- */
 public class Util {
     public static Iterable<Integer> range(int from, int to) {
         return () -> {

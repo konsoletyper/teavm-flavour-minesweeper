@@ -15,10 +15,6 @@
  */
 package org.teavm.flavour.minesweeper;
 
-/**
- *
- * @author Alexey Andreev
- */
 public class Cell {
     CellState state = CellState.UNKNOWN;
     boolean mine;
