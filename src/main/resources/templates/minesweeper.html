@@ -7,7 +7,7 @@
     You won! Congratulations!
   </std:if>
   <std:if condition="state == GameState.LOST">
-    You've lost
+    You lose
   </std:if>
 </div>
 <table attr:class="'game-field' + (state == GameState.WON ? ' game-won' : state == GameState.LOST ? ' game-lost' : '')">

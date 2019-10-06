@@ -40,8 +40,8 @@ public class MinesweeperGame {
     public void restart() {
         state = GameState.IN_PROGRESS;
         this.cells = new Cell[rows][columns];
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < columns; ++j) {
+        for (var i = 0; i < rows; ++i) {
+            for (var j = 0; j < columns; ++j) {
                 cells[i][j] = new Cell();
             }
         }
@@ -54,12 +54,12 @@ public class MinesweeperGame {
     }
 
     private void initMines() {
-        Random random = new Random();
-        int mines = rows * columns / 7;
+        var random = new Random();
+        var mines = rows * columns / 7;
         emptyLeft = rows * columns - mines;
-        for (int i = 0; i < mines; ++i) {
-            int row = random.nextInt(rows);
-            int column = random.nextInt(columns);
+        for (var i = 0; i < mines; ++i) {
+            var row = random.nextInt(rows);
+            var column = random.nextInt(columns);
             if (cells[row][column].mine) {
                 --i;
             } else {
@@ -69,10 +69,10 @@ public class MinesweeperGame {
     }
 
     private void calculateMinesAround() {
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < columns; ++j) {
-                int count = 0;
-                for (Coordinates coord : cellsAround(i, j)) {
+        for (var i = 0; i < rows; ++i) {
+            for (var j = 0; j < columns; ++j) {
+                var count = 0;
+                for (var coord : cellsAround(i, j)) {
                     if (cells[coord.row][coord.column].mine) {
                         ++count;
                     }
@@ -83,8 +83,8 @@ public class MinesweeperGame {
     }
 
     private List<Coordinates> cellsAround(int i, int j) {
-        List<Coordinates> filtered = new ArrayList<>();
-        for (Coordinates coord : allCellsAround(i, j)) {
+        var filtered = new ArrayList<Coordinates>();
+        for (var coord : allCellsAround(i, j)) {
             if (coord.column >= 0 && coord.row >= 0 && coord.column < columns && coord.row < rows) {
                 filtered.add(coord);
             }
@@ -93,7 +93,7 @@ public class MinesweeperGame {
     }
 
     private List<Coordinates> allCellsAround(int i, int j) {
-        List<Coordinates> list = new ArrayList<>();
+        var list = new ArrayList<Coordinates>();
         list.add(new Coordinates(i - 1, j - 1));
         list.add(new Coordinates(i - 1, j));
         list.add(new Coordinates(i - 1, j + 1));
@@ -126,11 +126,11 @@ public class MinesweeperGame {
             return;
         }
 
-        Queue<Coordinates> worklist = new ArrayDeque<>();
+        var worklist = new ArrayDeque<Coordinates>();
         worklist.add(new Coordinates(row, column));
         while (!worklist.isEmpty()) {
-            Coordinates coord = worklist.remove();
-            Cell cell = cells[coord.row][coord.column];
+            var coord = worklist.remove();
+            var cell = cells[coord.row][coord.column];
             if (cell.getState() != CellState.UNKNOWN) {
                 continue;
             }
@@ -157,9 +157,9 @@ public class MinesweeperGame {
     }
 
     private void showMines() {
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < columns; ++j) {
-                Cell cell = cells[i][j];
+        for (var i = 0; i < rows; ++i) {
+            for (var j = 0; j < columns; ++j) {
+                var cell = cells[i][j];
                 if (cell.mine) {
                     cell.state = CellState.MINE;
                 }
@@ -170,7 +170,7 @@ public class MinesweeperGame {
     static class Coordinates {
         int row;
         int column;
-        public Coordinates(int row, int column) {
+        Coordinates(int row, int column) {
             this.row = row;
             this.column = column;
         }

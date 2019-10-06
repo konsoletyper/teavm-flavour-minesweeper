@@ -19,16 +19,14 @@ import java.util.Iterator;
 
 public class Util {
     public static Iterable<Integer> range(int from, int to) {
-        return () -> {
-            return new Iterator<Integer>() {
-                int current = from;
-                @Override public boolean hasNext() {
-                    return current < to;
-                }
-                @Override public Integer next() {
-                    return current++;
-                }
-            };
+        return () -> new Iterator<>() {
+            int current = from;
+            @Override public boolean hasNext() {
+                return current < to;
+            }
+            @Override public Integer next() {
+                return current++;
+            }
         };
     }
 }
